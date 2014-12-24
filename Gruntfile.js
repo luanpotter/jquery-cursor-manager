@@ -47,6 +47,7 @@ module.exports = function(grunt) {
         }
       }
     },
+    clean: ["lib/", "bower_components/", "dist/", "node_modules/"]
   });
 
   grunt.loadNpmTasks('grunt-bower-task');
@@ -55,6 +56,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-qunit-serverless');
   grunt.loadNpmTasks('grunt-contrib-concat');
+  grunt.loadNpmTasks('grunt-contrib-clean');
 
   grunt.registerTask('prepare', ['bower', 'bower_concat', 'jshint']);
   grunt.registerTask('run-tests', ['qunit-serverless']);
