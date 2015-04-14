@@ -16,11 +16,16 @@
     return pos;
   };
 
+  var getCursorEnd = function(jthis) {
+    var el = $(jthis).get(0);
+    return el.selectionEnd;
+  };
+
   var setCursorPosition = function(jthis, pos, endPos) {
     endPos = endPos || pos;
     $(jthis).each(function(index, elem) {
       if (elem.setSelectionRange) {
-        elem.setSelectionRange(pos, pos);
+        elem.setSelectionRange(pos, endPos);
       } else if (elem.createTextRange) {
         var range = elem.createTextRange();
         range.collapse(true);
@@ -37,6 +42,9 @@
     return {
       get : function() {
         return getCursorPosition(jthis);
+      },
+      getEnd : function() {
+        return getCursorEnd(jthis);
       },
       set : function(pos, endPos) {
         return setCursorPosition(jthis, pos, endPos);

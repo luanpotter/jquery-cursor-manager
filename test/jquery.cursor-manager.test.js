@@ -12,6 +12,7 @@
     assert.equal(input.cursor().get(), 2);
   });
 
+  /* TODO can't test get not in the end and getEnd for multichar selection because of phatom.js */
   /* TODO can't test set because of phantom.js inconsistence */
 
   QUnit.test("stripOut", function(assert) {
